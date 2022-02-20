@@ -20,7 +20,7 @@ def check_validity(word):
         return True
     return False
 
-
+# Clean message input and return vectorized
 def format_input(test):
     tokenized_sentence = word_tokenize(test)
     final = list(filter(check_validity, tokenized_sentence))
@@ -28,7 +28,7 @@ def format_input(test):
 
 keras_model = keras.models.load_model('model_keras')
 
-
+# Return true or false, true for spam and false for ham
 def predict_input(input):
     formatted_input = format_input(input)
     formatted_input = np.array(formatted_input)
